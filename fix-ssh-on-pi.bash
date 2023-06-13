@@ -165,6 +165,7 @@ then
     then
       key="${argument%=*}"
       value="${argument#*=}"
+      echo_debug "Setting \"${key}\" to \"${value}\""
       eval "${key}=${value}"
     fi
   done
@@ -227,6 +228,12 @@ then
   exit 17
 fi
 rm "${working_dir}/~test"
+
+if [ ! -z "${nodename}" ]
+then
+  echo_debug "Setting nodename in firstboot-nodename.sh to \"${nodename}\""
+  sed "s/NODENAME_REPLACE_ME/${nodename}/g" ./firstboot-nodename-template.sh > firstboot-nodename.sh
+fi
 
 ###########
 # Decide which disto to use

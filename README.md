@@ -24,3 +24,10 @@ Since then I improved the script to:
 - Added support set up default users using [userconf.txt](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-a-user)
 
 This script is part of a series "Manage your Raspberry Pi fleet with Ansible" which was covered on [opensource.com](https://opensource.com/article/20/9/raspberry-pi-ansible) and on [Hacker Public Radio](http://hackerpublicradio.org/eps.php?id=3173).
+
+Modifications by sconklin:
+  * Templatized setting node name - to set node name from ini file (or command line)
+  To use, specify firstboot-nodename.sh as the firstboot file, then set nodename=whatever in the ini file or on the command line.
+  The script will create the firstboot-nodename file on the fly from firstboot-nodename-template
+
+  
